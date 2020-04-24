@@ -22,4 +22,18 @@ public extension UIHostingController {
         
         return viewController
     }
+    
+    static func withBetterSheetSupport(rootView: Content, hostingController: (AnyView) -> UIViewController) -> UIViewController {
+        let coordinator = BetterSheetCoordinator()
+        
+        let betterSheetSupportingRootView =
+            BetterSheetSupport(coordinator: coordinator) {
+                rootView
+            }
+
+        let viewController = hostingController(AnyView(betterSheetSupportingRootView))
+        coordinator.viewController = viewController
+        
+        return viewController
+    }
 }
