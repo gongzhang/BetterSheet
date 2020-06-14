@@ -37,3 +37,22 @@ public extension UIHostingController {
         return viewController
     }
 }
+
+public extension UIHostingController where Content == AnyView {
+    
+    @discardableResult
+    func withBetterSheetSupport() -> Self {
+        let coordinator = BetterSheetCoordinator()
+        let rootView = self.rootView
+        
+        let betterSheetSupportingRootView =
+            BetterSheetSupport(coordinator: coordinator) {
+                rootView
+            }
+
+        self.rootView = AnyView(betterSheetSupportingRootView)
+        coordinator.viewController = self
+        return self
+    }
+    
+}
