@@ -5,7 +5,7 @@
 //  Created by Peter Verhage on 09/08/2019.
 //  Copyright © 2019 Peter Verhage. All rights reserved.
 //
-
+#if os(iOS)
 import SwiftUI
 
 internal struct BetterSheetPreferenceKey: PreferenceKey {
@@ -18,3 +18,4 @@ internal struct BetterSheetPreferenceKey: PreferenceKey {
         value = result
     }
 }
+#endif

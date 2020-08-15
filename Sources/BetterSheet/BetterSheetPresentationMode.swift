@@ -5,7 +5,7 @@
 //  Created by Peter Verhage on 02/08/2019.
 //  Copyright © 2019 Peter Verhage. All rights reserved.
 //
-
+#if os(iOS)
 import SwiftUI
 
 public struct BetterSheetPresentationMode {
@@ -36,3 +36,4 @@ public extension EnvironmentValues {
         set { self[BetterSheetPresentationModeEnvironmentKey.self] = newValue}
     }
 }
+#endif

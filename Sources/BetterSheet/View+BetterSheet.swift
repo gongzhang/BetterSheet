@@ -5,7 +5,7 @@
 //  Created by Peter Verhage on 02/08/2019.
 //  Copyright © 2019 Peter Verhage. All rights reserved.
 //
-
+#if os(iOS)
 import SwiftUI
 
 private struct BetterSheetIsPresented<Sheet>: ViewModifier where Sheet: View {
@@ -73,3 +73,4 @@ public extension View {
         modifier(BetterSheetItem(item: item, onDismiss: onDismiss, content: content))
     }
 }
+#endif
